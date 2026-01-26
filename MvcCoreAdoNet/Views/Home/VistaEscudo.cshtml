@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1 id="titulo">Prueba</h1>
+
+@section images{
+    <img src="~/images/atletiredondo.jpg"/>
+}
+
+<button id="btnpruebame" class="btn btn-danger">
+    Pruebame
+</button>
+
+@section scripts{
+    <script>
+        $(document).ready(function(){
+            $("#btnpruebame").click(function(){
+                $("#titulo").text("ATLETICO DE MADRID");
+            })
+        })
+    </script>
+}
+
+
