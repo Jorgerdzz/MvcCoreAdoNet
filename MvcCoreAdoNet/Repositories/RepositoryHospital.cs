@@ -79,5 +79,17 @@ namespace MvcCoreAdoNet.Repositories
 
         }
 
+        public async Task DeleteHospitalAsync(int id)
+        {
+            string sql = "delete from HOSPITAL where HOSPITAL_COD = @id";
+            this.com.Parameters.AddWithValue("@id", id);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            await this.cn.OpenAsync();
+            await this.com.ExecuteNonQueryAsync();
+            await this.cn.CloseAsync();
+            this.com.Parameters.Clear();
+        }
+
     }
 }

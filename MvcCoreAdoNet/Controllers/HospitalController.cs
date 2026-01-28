@@ -37,5 +37,11 @@ namespace MvcCoreAdoNet.Controllers
             ViewData["MENSAJE"] = "Hospital insertado correctamente";
             return View();
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.repo.DeleteHospitalAsync(id);
+            return RedirectToAction("Index");
+        }
     }
 }
