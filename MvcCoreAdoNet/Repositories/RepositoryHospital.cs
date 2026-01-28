@@ -79,6 +79,23 @@ namespace MvcCoreAdoNet.Repositories
 
         }
 
+        public async Task UpdateHospitalAsync(int id, string nombre, string direccion, string telefono, int camas)
+        {
+            string sql = "update HOSPITAL set NOMBRE=@nombre, DIRECCION=@direccion, TELEFONO=@telefono, NUM_CAMA=@camas" +
+                " where HOSPITAL_COD=@id";
+            this.com.Parameters.AddWithValue("@nombre", nombre);
+            this.com.Parameters.AddWithValue("@direccion", direccion);
+            this.com.Parameters.AddWithValue("@telefono", telefono);
+            this.com.Parameters.AddWithValue("@camas", camas);
+            this.com.Parameters.AddWithValue("@id", id);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            await this.cn.OpenAsync();
+            await this.com.ExecuteNonQueryAsync();
+            await this.cn.CloseAsync();
+            this.com.Parameters.Clear();
+        }
+
         public async Task DeleteHospitalAsync(int id)
         {
             string sql = "delete from HOSPITAL where HOSPITAL_COD = @id";
