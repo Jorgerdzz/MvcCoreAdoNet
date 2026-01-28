@@ -24,5 +24,18 @@ namespace MvcCoreAdoNet.Controllers
             Hospital hospital = await this.repo.FindHospitalAsync(id);
             return View(hospital);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Hospital hospital)
+        {
+            await this.repo.InsertHospitalesAsync(hospital.IdHospital, hospital.Nombre, hospital.Direccion, hospital.Telefono, hospital.Camas);
+            ViewData["MENSAJE"] = "Hospital insertado correctamente";
+            return View();
+        }
     }
 }

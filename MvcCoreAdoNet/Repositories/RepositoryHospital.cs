@@ -62,5 +62,22 @@ namespace MvcCoreAdoNet.Repositories
 
         }
 
+        public async Task InsertHospitalesAsync(int id, string nombre, string direccion, string telefono, int camas)
+        {
+            string sql = "insert into HOSPITAL values(@id, @nombre, @direccion, @telefono, @camas)";
+            this.com.Parameters.AddWithValue("@id", id);
+            this.com.Parameters.AddWithValue("@nombre", nombre);
+            this.com.Parameters.AddWithValue("@direccion", direccion);
+            this.com.Parameters.AddWithValue("@telefono", telefono);
+            this.com.Parameters.AddWithValue("@camas", camas);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            await this.cn.OpenAsync();
+            await this.com.ExecuteNonQueryAsync();
+            await this.cn.CloseAsync();
+            this.com.Parameters.Clear();
+
+        }
+
     }
 }
