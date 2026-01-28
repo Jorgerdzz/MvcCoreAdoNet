@@ -13,6 +13,7 @@
             <th>Nombre</th>
             <th>Direccion</th>
             <th>Telefono</th>
+            <th>Details</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +23,12 @@
                 <td>@hospital.Nombre</td>
                 <td>@hospital.Direccion</td>
                 <td>@hospital.Telefono</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Hospital"
+                    , new { id = @hospital.IdHospital})
+                </td>
             </tr>
         }
     </tbody>
 </table>
+

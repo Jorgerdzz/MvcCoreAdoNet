@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Hospital
+
+
+<h1>Details</h1>
+
+<a asp-controller="Hospital" asp-action="Index">Back to list</a>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        Id: @Model.IdHospital
+    </li>
+    <li class="list-group-item">
+        Nombre: @Model.Nombre
+    </li>
+    <li class="list-group-item">
+        Direccion: @Model.Direccion
+    </li>
+    <li class="list-group-item">
+        Telefono: @Model.Telefono
+    </li>
+    <li class="list-group-item">
+        Camas: @Model.Camas
+    </li>
+</ul>
