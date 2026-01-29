@@ -17,6 +17,8 @@ namespace MvcCoreAdoNet.Controllers
         public async Task<IActionResult> DoctoresEspecialidad()
         {
             List<Doctor> doctores = await this.repo.GetDoctorsAsync();
+            List<string> especialidades = await this.repo.GetEspecialidadesAsync();
+            ViewData["ESPECIALIDADES"] = especialidades;
             return View(doctores);
         }
 
@@ -24,6 +26,8 @@ namespace MvcCoreAdoNet.Controllers
         public async Task<IActionResult> DoctoresEspecialidad(string especialidad)
         {
             List<Doctor> doctores = await this.repo.GetDoctorsEspecialidadAsync(especialidad);
+            List<string> especialidades = await this.repo.GetEspecialidadesAsync();
+            ViewData["ESPECIALIDADES"] = especialidades;
             return View(doctores);
         }
 
