@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Doctor>
+
+<h1>Doctores especialidad</h1>
+
+<form method="POST">
+    <label>Introduzca Especialidad: </label>
+    <input type="text" name="especialidad" value="" />
+    <button class="btn btn-warning">Buscar doctores</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Salario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Doctor doc in Model)
+        {
+            <tr>
+                <td>@doc.IdDoctor</td>
+                <td>@doc.Apellido</td>
+                <td>@doc.Especialidad</td>
+                <td>@doc.Salario</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -56,5 +56,7 @@ namespace MvcCoreAdoNet.Controllers
             await this.repo.DeleteHospitalAsync(id);
             return RedirectToAction("Index");
         }
+
+        
     }
 }
